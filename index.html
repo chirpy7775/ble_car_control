@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Car Controller</title>
+    <link rel="icon" href="favicon.ico"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="BLE Car Controller">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <button id="bt-btn">CONNECT</button>
+    <div id="controls">
+        <div class="control-container">
+            <div id="steering" class="control-pad">
+                <div class="indicator"></div>
+                <div class="label">STEERING<br><span id="steering-value">90°</span></div>
+            </div>
+        </div>
+        <div class="control-container">
+            <div id="throttle" class="control-pad">
+                <div class="indicator"></div>
+                <div class="label">THROTTLE<br><span id="throttle-value">0%</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="controller.js"></script>
+</body>
+</html>
