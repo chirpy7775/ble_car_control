@@ -1,0 +1,121 @@
+<!--
+HTML файл для интерфейса управления платформой.
+Содержит элементы управления тягой и рулём, кнопки подключения и настройки.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Car Controller</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="BLE Car Controller">
+  <link rel="icon" href="favicon.ico"/>
+  <link href="style.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+<body>
+  <div class="controls-top">
+    <div id="battery-container" class="battery" style="display:none;">
+      <span id="battery-percent">--%</span>
+      <span id="battery-voltage">--V</span>
+    </div>
+
+    <button id="bt-btn" data-i18n="connect">CONNECT</button>
+    <button id="settings-btn" title="⚙️">⚙️</button>
+  </div>
+
+  <div id="controls">
+    <div class="control-container">
+      <div id="throttle" class="control-pad">
+        <div class="indicator"></div>
+        <div class="label">
+          <span data-i18n="throttle">THROTTLE</span><br>
+          <span id="throttle-value">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-container">
+      <div id="steering" class="control-pad">
+        <div class="indicator"></div>
+        <div class="label">
+          <span data-i18n="steering">STEERING</span><br>
+          <span id="steering-value">90°</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <h2 data-i18n="modalTitle">Настройки</h2>
+      <span class="close">&times;</span>
+      <div class="modal-body">
+        <h3 data-i18n="themeLabel">Тема оформления</h3>
+        <div id="theme-selector" class="theme-container"></div>
+
+        <h3 data-i18n="languageSettings">Язык</h3>
+        <div class="field">
+          <select id="lang-select"></select>
+        </div>
+
+        <h3 data-i18n="controlSettings">Управление</h3>
+        <div class="field">
+          <label>
+            <input type="checkbox" id="center-steering-checkbox">
+            <span data-i18n="centerSteering">Центрировать руль</span>
+          </label>
+        </div>
+        <div class="field">
+          <label>
+            <input type="checkbox" id="swap-controls-checkbox">
+            <span data-i18n="swapControls">Джойстик руля слева</span>
+          </label>
+        </div>
+        <div class="field">
+          <label>
+            <input type="checkbox" id="reverse-checkbox">
+            <span data-i18n="reverseMode">Режим реверса</span>
+          </label>
+        </div>
+
+        <h3 data-i18n="thresholds">Пороги отключения двигателя</h3>
+        <div id="params-container"></div>
+
+        <h3 data-i18n="steeringSettings">Рулевое управление</h3>
+        <div class="field">
+          <label data-i18n="minAngle">Минимальный угол</label>
+          <input type="number" id="min-angle" />
+        </div>
+        <div class="field">
+          <label data-i18n="maxAngle">Максимальный угол</label>
+          <input type="number" id="max-angle" />
+        </div>
+        <div class="field">
+          <label>
+            <input type="checkbox" id="invert-steering-checkbox">
+            <span data-i18n="invertSteering">Инвертировать руль</span>
+          </label>
+        </div>
+        <div id="install-section" style="display: none;">
+          <h3 data-i18n="installSection">Установка</h3>
+          <div class="field">
+            <button id="install-btn" class="install-button" data-i18n="installApp"></button>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="save-settings"  data-i18n="save">Сохранить</button>
+        <button id="reset-settings" data-i18n="reset">Сбросить</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="controller.js"></script>
+</body>
+</html>

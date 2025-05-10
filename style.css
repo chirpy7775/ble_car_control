@@ -1,0 +1,312 @@
+/*
+Файл CSS для стилизации интерфейса управления платформой.
+Определяет стили для элементов веб-приложения
+*/
+html {
+  height: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  touch-action: none;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+.controls-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 2vh 0;
+  width: 100%;
+  position: relative;
+}
+
+#battery-container {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background: var(--battery-bg);
+  color: var(--battery-color);
+  position: absolute;
+  left: 20px;
+}
+
+#bt-btn {
+  padding: 9px 12px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  background: var(--button-bg);
+  color: #fff;
+  cursor: pointer;
+  order: 2;
+}
+
+#settings-btn {
+  padding: 8px;
+  font-size: 1.2em;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+#controls {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-grow: 1;
+  padding: 1vh 0;
+  max-height: calc(100dvh - 80px);
+  box-sizing: border-box;
+}
+
+.control-container {
+  width: 45%;
+  height: 60dvh;
+  min-height: 300px;
+  position: relative;
+  touch-action: none;
+}
+
+.control-pad {
+  width: 100%;
+  height: 100%;
+  background: var(--control-bg);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.indicator {
+  width: 60px;
+  height: 60px;
+  background: var(--button-bg);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+}
+
+.label {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  pointer-events: none;
+}
+
+.label span {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+@media (orientation: landscape) {
+  body {
+    padding: 0 2vw;
+  }
+  #controls {
+    flex-direction: row;
+    height: 80dvh;
+    gap: 2vw;
+    max-height: none;
+  }
+  .control-container {
+    width: 50%;
+    height: 80dvh;
+    min-height: auto;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .control-container {
+    height: 70dvh;
+  }
+  .label {
+    font-size: 0.9em;
+  }
+  .label span {
+    font-size: 1em;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+  align-items: flex-start; 
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 320px;
+  max-height: 90vh;
+  box-sizing: border-box;
+  position: relative;
+  margin: 20px 0; 
+  overflow-y: auto; 
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.field {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: .9em;
+}
+
+.field input[type=number] {
+  padding: 6px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.buttons button {
+  flex: 1;
+  margin: 0 4px;
+  padding: 8px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons button#reset-settings {
+  background: #f44336;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+#controls.swapped {
+  flex-direction: row-reverse;
+}
+
+h3 {
+  margin-block-start: 1em;
+  margin-block-end: 0.5em;
+}
+
+.theme-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.theme-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.theme-option.selected {
+  border-color: #000;
+  transform: scale(1.1);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding-bottom: 16px;
+}
+
+.buttons {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  bottom: 0;
+  background: var(--modal-bg);
+  padding: 5px 0;
+  z-index: 10;
+}
+
+.buttons button {
+  flex: 1;
+  margin: 0 4px;
+}
+
+#lang-select {
+  padding: 6px;
+  border-radius: 4px;
+}
+
+#install-btn {
+  width: 90%;
+  margin: 0 auto;
+  padding: 8px;
+  display: block;
+  background: var(--button-bg);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#install-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+#install-section h3 {
+  margin-top: 0;
+}
