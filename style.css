@@ -42,7 +42,7 @@ body {
   background: var(--battery-bg);
   color: var(--battery-color);
   position: absolute;
-  left: 20px;
+  left: 10px;
 }
 
 #bt-btn {
