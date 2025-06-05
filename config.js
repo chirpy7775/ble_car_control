@@ -2,7 +2,7 @@
 Конфигурационный файл с параметрами по умолчанию.
 */
 
-export const defaultSteering = { min: 45, max: 135, invert: true };
+export const defaultSteering = { min: 45, max: 150, invert: true };
 
 export const bluetoothConfig = {
   serviceId: 0xFFE0,

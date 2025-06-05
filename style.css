@@ -310,3 +310,25 @@ h3 {
 #install-section h3 {
   margin-top: 0;
 }
+
+
+@media (max-width: 390px) {
+  #bt-btn {
+    padding: 8px 6px;
+    font-size: 0.9em;
+  }
+
+  .controls-top {
+    gap: 10px;
+  }
+
+  #bt-btn {
+    flex-shrink: 1;
+  }
+  #battery-container {
+    display: none;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.7em;
+    left: 5px;
+}
